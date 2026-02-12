@@ -47,10 +47,3 @@ File → Options → Mail → Signatures → Paste
 ### Apple Mail
 Mail → Settings → Signatures → Paste
 
-## 👤 Contact
-
-- **Name:** Desiree Canlas
-- **Title:** Project Coordinator/Engineer
-- **Phone:** +971 505 844 381
-- **Email:** desiree@dynamics-design.com
-- **Website:** www.dynamics-design.com

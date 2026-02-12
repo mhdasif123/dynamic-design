@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Signatures — Moieen Vajid</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Work+Sans:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --navy: #1a2332;
+            --navy-light: #2a3648;
+            --gold: #d4a574;
+            --gold-light: #e8b989;
+            --cream: #faf8f5;
+            --white: #ffffff;
+            --gray: #6b7280;
+            --gray-light: #e5e7eb;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--cream);
+            color: var(--navy);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .background-gradient {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(135deg,
+                    var(--cream) 0%,
+                    #f5f0e8 25%,
+                    #e8dfd0 50%,
+                    var(--cream) 75%,
+                    #f5f0e8 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 20s ease infinite;
+        }
+
+        @keyframes gradientShift {
+
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+
+        .decorative-circle {
+            position: fixed;
+            border-radius: 50%;
+            opacity: 0.03;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .circle-1 {
+            width: 600px;
+            height: 600px;
+            background: var(--gold);
+            top: -200px;
+            right: -200px;
+            animation: float 25s ease-in-out infinite;
+        }
+
+        .circle-2 {
+            width: 400px;
+            height: 400px;
+            background: var(--navy);
+            bottom: -100px;
+            left: -100px;
+            animation: float 20s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+
+            50% {
+                transform: translate(30px, -30px) rotate(5deg);
+            }
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 40px 20px 20px;
+            color: var(--navy);
+            text-decoration: none;
+            font-size: 0.9375rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .back-link:hover {
+            color: var(--gold);
+            transform: translateX(-4px);
+        }
+
+        .hero {
+            text-align: center;
+            padding: 60px 20px 80px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-subtitle {
+            font-family: 'Work Sans', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 20px;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.2s forwards;
+        }
+
+        .hero-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4.5rem;
+            font-weight: 300;
+            line-height: 1.1;
+            color: var(--navy);
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.4s forwards;
+        }
+
+        .hero-title strong {
+            font-weight: 700;
+            display: block;
+        }
+
+        .hero-description {
+            font-size: 1.125rem;
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto 40px;
+            line-height: 1.8;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.6s forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .signatures-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 60px;
+            padding: 40px 0 120px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .signature-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 50px;
+            box-shadow:
+                0 10px 40px rgba(26, 35, 50, 0.08),
+                0 0 1px rgba(26, 35, 50, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0;
+            animation: cardFadeIn 0.8s ease-out forwards;
+        }
+
+        .signature-card:nth-child(1) {
+            animation-delay: 0.8s;
+        }
+
+        .signature-card:nth-child(2) {
+            animation-delay: 1s;
+        }
+
+        @keyframes cardFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .signature-card:hover {
+            transform: translateY(-8px);
+            box-shadow:
+                0 20px 60px rgba(26, 35, 50, 0.12),
+                0 0 1px rgba(26, 35, 50, 0.1);
+        }
+
+        .card-header {
+            border-bottom: 1px solid var(--gray-light);
+            padding-bottom: 28px;
+            margin-bottom: 36px;
+        }
+
+        .card-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 8px;
+            letter-spacing: -0.01em;
+        }
+
+        .card-description {
+            font-size: 0.9375rem;
+            color: var(--gray);
+            line-height: 1.6;
+        }
+
+        .signature-preview {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 32px;
+            border: 1px solid var(--gray-light);
+            min-height: 220px;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .signature-preview:hover {
+            border-color: var(--gold-light);
+            box-shadow: 0 4px 20px rgba(212, 165, 116, 0.1);
+        }
+
+        .copy-button {
+            width: 100%;
+            padding: 18px 32px;
+            background: var(--navy);
+            color: var(--white);
+            border: none;
+            border-radius: 12px;
+            font-family: 'Work Sans', sans-serif;
+            font-size: 0.9375rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .copy-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .copy-button:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .copy-button:hover {
+            background: var(--navy-light);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(26, 35, 50, 0.2);
+        }
+
+        .copy-button:active {
+            transform: translateY(0);
+        }
+
+        .copy-button.copied {
+            background: #10b981;
+        }
+
+        .button-text {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .button-icon {
+            width: 20px;
+            height: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .copy-button:hover .button-icon {
+            transform: scale(1.1);
+        }
+
+        .footer {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--gray);
+            font-size: 0.875rem;
+        }
+
+        .footer-divider {
+            width: 60px;
+            height: 1px;
+            background: var(--gold);
+            margin: 0 auto 20px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+
+            .hero {
+                padding: 40px 20px 60px;
+            }
+
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .signatures-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .signature-card {
+                padding: 32px;
+            }
+
+            .signature-preview {
+                padding: 24px;
+            }
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            background: var(--navy);
+            color: var(--white);
+            padding: 20px 32px;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(26, 35, 50, 0.3);
+            transform: translateY(120px);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1000;
+            font-size: 0.9375rem;
+            font-weight: 500;
+        }
+
+        .toast.show {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="background-gradient"></div>
+    <div class="decorative-circle circle-1"></div>
+    <div class="decorative-circle circle-2"></div>
+
+    <div class="container">
+        <a href="../index.html" class="back-link">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12.5 15L7.5 10L12.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+            </svg>
+            Back to Directory
+        </a>
+
+        <section class="hero">
+            <div class="hero-subtitle">Professional Email Signatures</div>
+            <h1 class="hero-title">
+                Elegant Signatures
+                <strong>for Moieen Vajid</strong>
+            </h1>
+            <p class="hero-description">
+                Two meticulously crafted email signature designs, ready to elevate your professional communication.
+            </p>
+        </section>
+
+        <div class="signatures-grid">
+            <div class="signature-card">
+                <div class="card-header">
+                    <h2 class="card-title">Modern Style</h2>
+                    <p class="card-description">Logo inline with name • Gradient accent • Serif italic title</p>
+                </div>
+
+                <div class="signature-preview" id="modern-preview">
+                    <table cellpadding="0" cellspacing="0" border="0"
+                        style="max-width: 500px; background-color: #ffffff; border-collapse: collapse; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;">
+                        <tr>
+                            <td style="padding-bottom: 4px;">
+                                <table cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse;">
+                                    <tr>
+                                        <td style="vertical-align: middle; padding-right: 12px;">
+                                            <img src="https://dynamics-design.com/_next/static/media/logonew.138eef76.png"
+                                                alt="DD" style="height: 32px; display: block;" />
+                                        </td>
+                                        <td style="vertical-align: middle;">
+                                            <p
+                                                style="margin: 0; font-size: 24px; font-weight: 700; color: #0a0a0a; letter-spacing: -0.5px;">
+                                                Moieen Vajid
+                                            </p>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding-bottom: 10px;">
+                                <p
+                                    style="margin: 0; font-size: 14px; color: #666666; font-weight: 400; font-style: italic; font-family: Georgia, 'Times New Roman', serif;">
+                                    Director
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding-bottom: 10px;">
+                                <div
+                                    style="width: 40px; height: 2px; background: linear-gradient(90deg, #3b5998 0%, #e8b44d 100%);">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <table cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse;">
+                                    <tr>
+                                        <td style="padding-bottom: 5px;">
+                                            <a href="tel:+971529166000"
+                                                style="color: #1a1a1a; text-decoration: none; font-size: 13px; font-weight: 500;">M:
+                                                +971 529 166 000</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding-bottom: 5px;">
+                                            <a href="mailto:m.v@dynamics-design.com"
+                                                style="color: #1a1a1a; text-decoration: none; font-size: 13px; font-weight: 500;">m.v@dynamics-design.com</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding-bottom: 5px;">
+                                            <a href="https://www.dynamics-design.com"
+                                                style="color: #3b5998; text-decoration: none; font-size: 13px; font-weight: 500;">www.dynamics-design.com</a>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding-top: 4px;">
+                                <img src="../assets/images/certifications.png" alt="ARS | UAF | ISO 9001:2015 Certified"
+                                    style="height: 50px; display: block;" />
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <button class="copy-button" onclick="copySignature('modern-preview', this)">
+                    <span class="button-text">
+                        <svg class="button-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 4V16C8 17.1046 8.89543 18 10 18H18" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" />
+                            <rect x="4" y="8" width="12" height="12" rx="2" stroke="currentColor" stroke-width="2" />
+                        </svg>
+                        Copy Modern Signature
+                    </span>
+                </button>
+            </div>
+
+            <div class="signature-card">
+                <div class="card-header">
+                    <h2 class="card-title">Clean Style</h2>
+                    <p class="card-description">P/E/W labels • Ultra compact • Clean layout</p>
+                </div>
+
+                <div class="signature-preview" id="clean-preview">
+                    <table cellpadding="0" cellspacing="0" border="0"
+                        style="max-width: 450px; background-color: #ffffff; border-collapse: collapse;">
+                        <tr>
+                            <td>
+                                <table cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse;">
+                                    <tr>
+                                        <td style="padding-bottom: 2px;">
+                                            <table cellpadding="0" cellspacing="0" border="0"
+                                                style="border-collapse: collapse;">
+                                                <tr>
+                                                    <td style="vertical-align: middle; padding-right: 10px;">
+                                                        <img src="https://dynamics-design.com/_next/static/media/logonew.138eef76.png"
+                                                            alt="DD" style="height: 30px; display: block;" />
+                                                    </td>
+                                                    <td style="vertical-align: middle;">
+                                                        <p
+                                                            style="margin: 0; font-size: 22px; font-weight: 600; color: #1a1a1a; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;">
+                                                            Moieen Vajid
+                                                        </p>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding-bottom: 14px;">
+                                            <p style="margin: 0; font-size: 13px; color: #888888; font-weight: 400;">
+                                                Director
+                                            </p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding-bottom: 5px;">
+                                            <p style="margin: 0; font-size: 13px; color: #1a1a1a;">
+                                                <span
+                                                    style="color: #aaaaaa; font-weight: 500; display: inline-block; width: 18px;">P</span>
+                                                <a href="tel:+971529166000"
+                                                    style="color: #1a1a1a; text-decoration: none;">M: +971 529 166
+                                                    000</a>
+                                            </p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding-bottom: 5px;">
+                                            <p style="margin: 0; font-size: 13px; color: #1a1a1a;">
+                                                <span
+                                                    style="color: #aaaaaa; font-weight: 500; display: inline-block; width: 18px;">E</span>
+                                                <a href="mailto:m.v@dynamics-design.com"
+                                                    style="color: #1a1a1a; text-decoration: none;">m.v@dynamics-design.com</a>
+                                            </p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding-bottom: 14px;">
+                                            <p style="margin: 0; font-size: 13px; color: #1a1a1a;">
+                                                <span
+                                                    style="color: #aaaaaa; font-weight: 500; display: inline-block; width: 18px;">W</span>
+                                                <a href="https://www.dynamics-design.com"
+                                                    style="color: #3b5998; text-decoration: none;">www.dynamics-design.com</a>
+                                            </p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <img src="../assets/images/certifications.png"
+                                                alt="ARS | UAF | ISO 9001:2015 Certified"
+                                                style="height: 50px; display: block;" />
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <button class="copy-button" onclick="copySignature('clean-preview', this)">
+                    <span class="button-text">
+                        <svg class="button-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 4V16C8 17.1046 8.89543 18 10 18H18" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" />
+                            <rect x="4" y="8" width="12" height="12" rx="2" stroke="currentColor" stroke-width="2" />
+                        </svg>
+                        Copy Clean Signature
+                    </span>
+                </button>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="footer-divider"></div>
+            <p>Professional email signatures for Dynamics Design & Project Management</p>
+        </footer>
+    </div>
+
+    <div class="toast" id="toast">Signature copied to clipboard!</div>
+
+    <script>
+        function copySignature(previewId, button) {
+            const preview = document.getElementById(previewId);
+            const table = preview.querySelector('table');
+
+            const range = document.createRange();
+            range.selectNode(table);
+            window.getSelection().removeAllRanges();
+            window.getSelection().addRange(range);
+
+            try {
+                document.execCommand('copy');
+                window.getSelection().removeAllRanges();
+
+                button.classList.add('copied');
+                const originalText = button.querySelector('.button-text').innerHTML;
+                button.querySelector('.button-text').innerHTML = `
+                    <svg class="button-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    Copied!
+                `;
+
+                const toast = document.getElementById('toast');
+                toast.classList.add('show');
+
+                setTimeout(() => {
+                    button.classList.remove('copied');
+                    button.querySelector('.button-text').innerHTML = originalText;
+                    toast.classList.remove('show');
+                }, 3000);
+            } catch (err) {
+                console.error('Failed to copy:', err);
+            }
+        }
+    </script>
+</body>
+
+</html>

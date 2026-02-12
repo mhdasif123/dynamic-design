@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Email Signatures — Desiree Canlas</title>
+    <title>Email Signatures — Dynamics Design & Project Management</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -168,20 +168,20 @@
             }
         }
 
-        .signatures-grid {
+        .employees-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-            gap: 60px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
             padding: 40px 0 120px;
             max-width: 1200px;
             margin: 0 auto;
         }
 
-        .signature-card {
+        .employee-card {
             background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(20px);
             border-radius: 24px;
-            padding: 50px;
+            padding: 40px;
             box-shadow:
                 0 10px 40px rgba(26, 35, 50, 0.08),
                 0 0 1px rgba(26, 35, 50, 0.1);
@@ -189,14 +189,25 @@
             transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             opacity: 0;
             animation: cardFadeIn 0.8s ease-out forwards;
+            cursor: pointer;
+            text-decoration: none;
+            display: block;
         }
 
-        .signature-card:nth-child(1) {
+        .employee-card:nth-child(1) {
             animation-delay: 0.8s;
         }
 
-        .signature-card:nth-child(2) {
+        .employee-card:nth-child(2) {
+            animation-delay: 0.9s;
+        }
+
+        .employee-card:nth-child(3) {
             animation-delay: 1s;
+        }
+
+        .employee-card:nth-child(4) {
+            animation-delay: 1.1s;
         }
 
         @keyframes cardFadeIn {
@@ -211,214 +222,74 @@
             }
         }
 
-        .signature-card:hover {
+        .employee-card:hover {
             transform: translateY(-8px);
             box-shadow:
                 0 20px 60px rgba(26, 35, 50, 0.12),
                 0 0 1px rgba(26, 35, 50, 0.1);
-        }
-
-        .card-header {
-            border-bottom: 1px solid var(--gray-light);
-            padding-bottom: 28px;
-            margin-bottom: 36px;
-        }
-
-        .card-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2rem;
-            font-weight: 600;
-            color: var(--navy);
-            margin-bottom: 8px;
-            letter-spacing: -0.01em;
-        }
-
-        .card-description {
-            font-size: 0.9375rem;
-            color: var(--gray);
-            line-height: 1.6;
-        }
-
-        .signature-preview {
-            background: var(--white);
-            border-radius: 16px;
-            padding: 40px;
-            margin-bottom: 32px;
-            border: 1px solid var(--gray-light);
-            min-height: 220px;
-            display: flex;
-            align-items: center;
-            transition: all 0.3s ease;
-        }
-
-        .signature-preview:hover {
             border-color: var(--gold-light);
-            box-shadow: 0 4px 20px rgba(212, 165, 116, 0.1);
         }
 
-        .copy-button {
-            width: 100%;
-            padding: 18px 32px;
-            background: var(--navy);
-            color: var(--white);
-            border: none;
-            border-radius: 12px;
-            font-family: 'Work Sans', sans-serif;
-            font-size: 0.9375rem;
-            font-weight: 500;
-            letter-spacing: 0.02em;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .copy-button::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
+        .employee-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
-        }
-
-        .copy-button:hover::before {
-            width: 300px;
-            height: 300px;
-        }
-
-        .copy-button:hover {
-            background: var(--navy-light);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(26, 35, 50, 0.2);
-        }
-
-        .copy-button:active {
-            transform: translateY(0);
-        }
-
-        .copy-button.copied {
-            background: #10b981;
-        }
-
-        .button-text {
-            position: relative;
-            z-index: 1;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
-        }
-
-        .button-icon {
-            width: 20px;
-            height: 20px;
+            margin: 0 auto 24px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--white);
             transition: transform 0.3s ease;
         }
 
-        .copy-button:hover .button-icon {
-            transform: scale(1.1);
+        .employee-card:hover .employee-icon {
+            transform: scale(1.1) rotate(5deg);
         }
 
-        .instructions {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(20px);
-            border-radius: 24px;
-            padding: 60px;
-            margin: 80px auto 120px;
-            max-width: 900px;
-            border: 1px solid rgba(255, 255, 255, 0.8);
-            box-shadow: 0 10px 40px rgba(26, 35, 50, 0.06);
-        }
-
-        .instructions-title {
+        .employee-name {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 2.5rem;
+            font-size: 1.75rem;
             font-weight: 600;
             color: var(--navy);
-            margin-bottom: 32px;
+            margin-bottom: 8px;
             text-align: center;
             letter-spacing: -0.01em;
         }
 
-        .steps {
-            display: grid;
-            gap: 24px;
-        }
-
-        .step {
-            display: flex;
-            gap: 20px;
-            padding: 24px;
-            background: var(--white);
-            border-radius: 12px;
-            border: 1px solid var(--gray-light);
-            transition: all 0.3s ease;
-        }
-
-        .step:hover {
-            border-color: var(--gold-light);
-            transform: translateX(8px);
-        }
-
-        .step-number {
-            flex-shrink: 0;
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, var(--gold), var(--gold-light));
-            color: var(--white);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.25rem;
-            font-weight: 600;
-        }
-
-        .step-content h3 {
-            font-family: 'Work Sans', sans-serif;
-            font-size: 1.125rem;
-            font-weight: 600;
-            color: var(--navy);
-            margin-bottom: 8px;
-        }
-
-        .step-content p {
+        .employee-designation {
             font-size: 0.9375rem;
             color: var(--gray);
-            line-height: 1.7;
+            text-align: center;
+            line-height: 1.6;
+            margin-bottom: 20px;
         }
 
-        .email-clients {
-            display: flex;
-            gap: 16px;
-            margin-top: 32px;
-            flex-wrap: wrap;
-            justify-content: center;
+        .employee-divider {
+            width: 40px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--gold), var(--gold-light));
+            margin: 20px auto;
         }
 
-        .client-link {
-            padding: 12px 24px;
-            background: var(--white);
+        .employee-contact {
+            font-size: 0.875rem;
+            color: var(--gray);
+            text-align: center;
+            line-height: 1.8;
+        }
+
+        .employee-contact a {
             color: var(--navy);
             text-decoration: none;
-            border-radius: 8px;
-            border: 1px solid var(--gray-light);
-            font-size: 0.875rem;
-            font-weight: 500;
-            transition: all 0.3s ease;
+            transition: color 0.3s ease;
         }
 
-        .client-link:hover {
-            background: var(--navy);
-            color: var(--white);
-            border-color: var(--navy);
-            transform: translateY(-2px);
+        .employee-contact a:hover {
+            color: var(--gold);
         }
 
         .footer {
@@ -448,46 +319,14 @@
                 font-size: 3rem;
             }
 
-            .signatures-grid {
+            .employees-grid {
                 grid-template-columns: 1fr;
-                gap: 40px;
+                gap: 24px;
             }
 
-            .signature-card {
+            .employee-card {
                 padding: 32px;
             }
-
-            .signature-preview {
-                padding: 24px;
-            }
-
-            .instructions {
-                padding: 40px 28px;
-            }
-
-            .step {
-                flex-direction: column;
-            }
-        }
-
-        .toast {
-            position: fixed;
-            bottom: 40px;
-            right: 40px;
-            background: var(--navy);
-            color: var(--white);
-            padding: 20px 32px;
-            border-radius: 12px;
-            box-shadow: 0 10px 40px rgba(26, 35, 50, 0.3);
-            transform: translateY(120px);
-            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            z-index: 1000;
-            font-size: 0.9375rem;
-            font-weight: 500;
-        }
-
-        .toast.show {
-            transform: translateY(0);
         }
     </style>
 </head>
@@ -502,181 +341,64 @@
             <div class="hero-subtitle">Professional Email Signatures</div>
             <h1 class="hero-title">
                 Elegant Signatures
-                <strong>for Desiree Canlas</strong>
+                <strong>for Dynamics Design & Project Management</strong>
             </h1>
             <p class="hero-description">
-                Two meticulously crafted email signature designs, ready to elevate your professional communication.
+                Select an employee to view and copy their professional email signature.
             </p>
         </section>
 
-        <div class="signatures-grid">
-            <div class="signature-card">
-                <div class="card-header">
-                    <h2 class="card-title">Modern Style</h2>
-                    <p class="card-description">Logo inline with name • Gradient accent • Serif italic title</p>
+        <div class="employees-grid">
+            <a href="signatures/moieen-vajid.html" class="employee-card">
+                <div class="employee-icon">MV</div>
+                <h2 class="employee-name">Moieen Vajid</h2>
+                <p class="employee-designation">Director</p>
+                <div class="employee-divider"></div>
+                <div class="employee-contact">
+                    <div>M: +971 529 166 000</div>
+                    <div>m.v@dynamics-design.com</div>
                 </div>
+            </a>
 
-                <div class="signature-preview" id="modern-preview">
-                    <table cellpadding="0" cellspacing="0" border="0"
-                        style="max-width: 500px; background-color: #ffffff; border-collapse: collapse; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;">
-                        <tr>
-                            <td style="padding-bottom: 4px;">
-                                <table cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse;">
-                                    <tr>
-                                        <td style="vertical-align: middle; padding-right: 12px;">
-                                            <img src="https://dynamics-design.com/_next/static/media/logonew.138eef76.png"
-                                                alt="DD" style="height: 32px; display: block;" />
-                                        </td>
-                                        <td style="vertical-align: middle;">
-                                            <p
-                                                style="margin: 0; font-size: 24px; font-weight: 700; color: #0a0a0a; letter-spacing: -0.5px;">
-                                                Desiree Canlas
-                                            </p>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="padding-bottom: 10px;">
-                                <p
-                                    style="margin: 0; font-size: 14px; color: #666666; font-weight: 400; font-style: italic; font-family: Georgia, 'Times New Roman', serif;">
-                                    Project Coordinator/Engineer
-                                </p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="padding-bottom: 10px;">
-                                <div
-                                    style="width: 40px; height: 2px; background: linear-gradient(90deg, #3b5998 0%, #e8b44d 100%);">
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <table cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse;">
-                                    <tr>
-                                        <td style="padding-bottom: 5px;">
-                                            <a href="tel:+971505844381"
-                                                style="color: #1a1a1a; text-decoration: none; font-size: 13px; font-weight: 500;">+971
-                                                505 844 381</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td style="padding-bottom: 5px;">
-                                            <a href="mailto:desiree@dynamics-design.com"
-                                                style="color: #1a1a1a; text-decoration: none; font-size: 13px; font-weight: 500;">desiree@dynamics-design.com</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td style="padding-bottom: 5px;">
-                                            <a href="https://www.dynamics-design.com"
-                                                style="color: #3b5998; text-decoration: none; font-size: 13px; font-weight: 500;">www.dynamics-design.com</a>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="padding-top: 4px;">
-                                <img src="PHOTO-2026-02-08-12-20-24-removebg-preview.png"
-                                    alt="ARS | UAF | ISO 9001:2015 Certified" style="height: 50px; display: block;" />
-                            </td>
-                        </tr>
-                    </table>
+            <a href="signatures/abdul-khaleed.html" class="employee-card">
+                <div class="employee-icon">AK</div>
+                <h2 class="employee-name">Abdul Khaleed</h2>
+                <p class="employee-designation">Project Manager/Engineer</p>
+                <div class="employee-divider"></div>
+                <div class="employee-contact">
+                    <div>M: +971 565 764 372</div>
+                    <div>khaleed@dynamics-design.com</div>
                 </div>
-            </div>
+            </a>
 
-            <div class="signature-card">
-                <div class="card-header">
-                    <h2 class="card-title">Clean Style</h2>
-                    <p class="card-description">P/E/W labels • Ultra compact • Clean layout</p>
+            <a href="signatures/desiree-canlas.html" class="employee-card">
+                <div class="employee-icon">DC</div>
+                <h2 class="employee-name">Desiree Canlas</h2>
+                <p class="employee-designation">Project Coordinator/Engineer</p>
+                <div class="employee-divider"></div>
+                <div class="employee-contact">
+                    <div>M +971 505 844 381</div>
+                    <div>desiree@dynamics-design.com</div>
                 </div>
+            </a>
 
-                <div class="signature-preview" id="clean-preview">
-                    <table cellpadding="0" cellspacing="0" border="0"
-                        style="max-width: 450px; background-color: #ffffff; border-collapse: collapse;">
-                        <tr>
-                            <td>
-                                <table cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse;">
-                                    <tr>
-                                        <td style="padding-bottom: 2px;">
-                                            <table cellpadding="0" cellspacing="0" border="0"
-                                                style="border-collapse: collapse;">
-                                                <tr>
-                                                    <td style="vertical-align: middle; padding-right: 10px;">
-                                                        <img src="https://dynamics-design.com/_next/static/media/logonew.138eef76.png"
-                                                            alt="DD" style="height: 30px; display: block;" />
-                                                    </td>
-                                                    <td style="vertical-align: middle;">
-                                                        <p
-                                                            style="margin: 0; font-size: 22px; font-weight: 600; color: #1a1a1a; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;">
-                                                            Desiree Canlas
-                                                        </p>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td style="padding-bottom: 14px;">
-                                            <p style="margin: 0; font-size: 13px; color: #888888; font-weight: 400;">
-                                                Project Coordinator/Engineer
-                                            </p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td style="padding-bottom: 5px;">
-                                            <p style="margin: 0; font-size: 13px; color: #1a1a1a;">
-                                                <span
-                                                    style="color: #aaaaaa; font-weight: 500; display: inline-block; width: 18px;">P</span>
-                                                <a href="tel:+971505844381"
-                                                    style="color: #1a1a1a; text-decoration: none;">+971 505 844 381</a>
-                                            </p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td style="padding-bottom: 5px;">
-                                            <p style="margin: 0; font-size: 13px; color: #1a1a1a;">
-                                                <span
-                                                    style="color: #aaaaaa; font-weight: 500; display: inline-block; width: 18px;">E</span>
-                                                <a href="mailto:desiree@dynamics-design.com"
-                                                    style="color: #1a1a1a; text-decoration: none;">desiree@dynamics-design.com</a>
-                                            </p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td style="padding-bottom: 14px;">
-                                            <p style="margin: 0; font-size: 13px; color: #1a1a1a;">
-                                                <span
-                                                    style="color: #aaaaaa; font-weight: 500; display: inline-block; width: 18px;">W</span>
-                                                <a href="https://www.dynamics-design.com"
-                                                    style="color: #3b5998; text-decoration: none;">www.dynamics-design.com</a>
-                                            </p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <img src="PHOTO-2026-02-08-12-20-24-removebg-preview.png"
-                                                alt="ARS | UAF | ISO 9001:2015 Certified"
-                                                style="height: 50px; display: block;" />
-                                        </td>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
-                    </table>
+            <a href="signatures/kareemullah.html" class="employee-card">
+                <div class="employee-icon">K</div>
+                <h2 class="employee-name">Kareemullah</h2>
+                <p class="employee-designation">Admin</p>
+                <div class="employee-divider"></div>
+                <div class="employee-contact">
+                    <div>M +971 505 844 698</div>
+                    <div>kareem@dynamics-design.com</div>
                 </div>
-            </div>
+            </a>
         </div>
-
 
         <footer class="footer">
             <div class="footer-divider"></div>
             <p>Professional email signatures for Dynamics Design & Project Management</p>
         </footer>
     </div>
-
 </body>
 
 </html>
